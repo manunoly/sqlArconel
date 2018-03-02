@@ -1,0 +1,11 @@
+﻿select abonado_oficial.inergy, abonado.medidor, abonado.id_empresa from abonado_oficial inner join abonado on (abonado.medidor = abonado_oficial.medidor and abonado.id_empresa = abonado_oficial.id_empresa) where catalina_full = 1 and inergy_nuevo is not null and abonado_oficial.id_empresa != '81' and abonado.id_abonado in (select id_abonado from consumo group by id_abonado having count(*) > 16)
+
+select * from abonado_oficial where catalina_full = 1
+
+select * from abonado_oficial where inergy_nuevo is not null
+
+select * from abonado_oficial where catalina_full = 1 and inergy_nuevo is not null
+
+select * from abonado_oficial where catalina_full = 1 and inergy_nuevo is null
+
+select * from abonado_oficial where catalina_full is null and inergy_nuevo is not null

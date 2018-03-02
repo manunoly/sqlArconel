@@ -1,0 +1,13 @@
+﻿SELECT 
+  abonado_oficial.inergy, 
+  abonado_oficial.inergy_nuevo, 
+  abonado_oficial.medidor, 
+  abonado_oficial.cuenta, 
+  abonado_oficial.nombreabonado, 
+  abonado_oficial.ubicacionabonado, 
+  abonado_oficial.coord_x, 
+  abonado_oficial.coord_y, 
+  abonado_oficial.link
+FROM 
+  public.abonado_oficial
+where area is null and catalina_full = 1

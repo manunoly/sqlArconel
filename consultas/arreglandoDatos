@@ -1,0 +1,133 @@
+﻿update abonado set cantidaderror = 999 where id_abonado = 3152
+
+delete from consumo where id_consumo = 	88427
+
+update consumo set id_abonado = 3530 where id_abonado = 3531
+
+select * from abonado where medidor = '1520328'
+
+update consumo set energia = 117 where id_consumo = 90495
+select energia from consumo where id_consumo = 90495
+SELECT 
+  abonado.medidor, 
+  abonado_historia.medidor, 
+  abonado.cuenta, 
+  abonado_historia.cuenta, 
+  abonado.nombreabonado, 
+  abonado_historia.nombreabonado, 
+  abonado.descripciontarifa, 
+  abonado_historia.descripciontarifa
+FROM 
+  public.abonado, 
+  public.abonado_historia
+WHERE 
+  abonado.id_abonado = abonado_historia.id_abonado
+  and abonado.medidor = '1520328'
+
+SELECT 
+  abonado.id_abonado,
+  fecha.anno as IdProcesoRecoleccion, 
+  empresa_ubicacion.idempresa as IdEmpresa,
+  empresa_ubicacion.empresa,
+  fecha.fechainformacion as FechaInformacion, 
+  fecha.idmes as IdMes, 
+  fecha.mes as Mes, 
+  abonado.cuenta, 
+  abonado.medidor, 
+  abonado_oficial.inergy,
+  empresa_ubicacion.idprovincia as IdProvincia, 
+  empresa_ubicacion.provincia as Provincia, 
+  empresa_ubicacion.idcanton as IdCanton, 
+  empresa_ubicacion.canton as Canton, 
+  empresa_ubicacion.idparroquia as IdParroquia, 
+  empresa_ubicacion.parroquia as Parroquia,
+  abonado.nombreabonado, 
+  abonado.ubicacionabonado, 
+  abonado.fechanacimientoabonado,
+  abonado.esterceraedad, 
+  abonado.cedulaabonado,
+  consumo.nivelvoltaje as NivelVoltaje, 
+  consumo.grupoconsumo as GrupoConsumo,
+  consumo.codgrupoconsumo as CodGrupoConsumo,
+  consumo.tarifa as Tarifa,
+  abonado.descripciontarifa as Desc_Tarifa, 
+  abonado.tipocliente as TipoCliente, 
+  consumo.energia as Energia, 
+  consumo.subsidiocruzadocalculado, 
+  consumo.subsidiosolidariocalculado, 
+  consumo.subsidiosolidarioaplicado, 
+  consumo.subsidioterceraedad, 
+  consumo.subsidiotarifadignidad,
+  consumo.energia0722 as Energia0722, 
+  consumo.energia2207 as Energia2207, 
+  consumo.energia0818lv as Energia0818LV, 
+  consumo.energia1822lv as Energia1822LV, 
+  consumo.energia2208lv as Energia2208LV,
+  consumo.energia1822sdf as Energia1822SDF,
+  consumo.demandamaxima as DemandaMaxima, 
+  consumo.demandahoraspico as DemandaHorasPico, 
+  consumo.demandafacturable as DemandaFacturable, 
+  consumo.energiareactiva as EnergiaReactiva, 
+  consumo.valorcomercializacion as ValorComercializacion, 
+  consumo.impuestoalumbradopublico, 
+  consumo.impuestorecoleccionbasura, 
+  consumo.impuestobomberos, 
+  consumo.facturaservicioelectrico as FacturaServicioElectrico, 
+  consumo.facturaelectrica, 
+  consumo.facturatotal, 
+  consumo.valorrefacturacion, 
+  consumo.energiarefacturacion, 
+  consumo.interesmorarefacturacion, 
+  consumo.mesesadeudados, 
+  consumo.recaudacionservicioelectrico, 
+  consumo.recaudaciontotal, 
+  consumo.sistemavalorenergia, 
+  consumo.sistemavalorcomercializacion, 
+  consumo.sistemafacturacionservicioelectrico, 
+  consumo.sistemarecibesubsidiocruzado,
+  consumo.sistemaaplicasubsidioterceraedad, 
+  consumo.sistemaaplicasubsidiotarifadignidad, 
+  consumo.sistemasubsidioterceraedad, 
+  consumo.sistemasubsidiocruzadonominal, 
+  consumo.sistemasubsidiocruzado, 
+  consumo.sistemasubsidiocruzadosaldo, 
+  consumo.sistematotalfacturasintarifadignidad, 
+  consumo.sistematotalfacturacontarifadignidad, 
+  consumo.sistemasubsidiotarifadignidad, 
+  consumo.sistematotalfactura,
+  --falta cliente
+  consumo.tipomedidor as TipoMedidor, 
+  consumo.transformador, 
+  consumo.subsidioleydiscapacitado, 
+  consumo.lineabase, 
+  consumo.kwhsubsidio, 
+  consumo.equipamiento, 
+  consumo.valorsubsidiadopec, 
+  consumo.consumoresidencial, 
+  consumo.fechaingresosiscomercial, 
+  consumo.energiaelectrica as EnergiaElectrica, 
+  consumo.factorcorreccion as FactorCorreccion, 
+  consumo.cargodemanda as CargoDemanda, 
+  consumo.penalizacionbajofactorpotencia as PenalizacionBajoFactorPotencia, 
+  consumo.factorpotencia as FactorPotencia, 
+  consumo.financiamientococinainduccion, 
+  consumo.instalacioncircuitoexpreso, 
+  consumo.subsidiotarifaelectrica, 
+  consumo.facturadodamnificadovolcantungurahua,
+  abonado_oficial.nombreabonado as nombreabonado_oficial_selecionado,
+  abonado_oficial.cuenta as cuenta_oficial_selecionada,
+  abonado_oficial.ubicacionabonado as ubicacionabonado_oficial_selecionado,
+  abonado_oficial.tipo as tipo_oficial_selecionado, 
+  abonado_oficial.no_de_edificio,
+  abonado_oficial.coord_x, 
+  abonado_oficial.coord_y
+FROM public.empresa_ubicacion, 
+  public.consumo,
+  public.fecha,
+  public.abonado left join public.abonado_oficial on (public.abonado.id_abonado = abonado_oficial.id_abonado)
+WHERE 
+  consumo.id_abonado = abonado.id_abonado AND
+  consumo.id_fecha = fecha.fechainformacion AND
+  empresa_ubicacion.id_empresa_ubicacion = abonado.id_empresa_ubicacion and
+  abonado.cantidaderror = 1 and abonado.medidor = '13893005'
+  order by abonado.id_abonado

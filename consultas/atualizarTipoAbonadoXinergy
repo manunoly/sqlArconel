@@ -1,0 +1,1 @@
+﻿update abonado_oficial set tipo = 'Educación' where inergy_nuevo like '%-EDU-%'

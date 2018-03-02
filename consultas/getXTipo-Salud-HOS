@@ -1,0 +1,5 @@
+﻿SELECT 
+  abonado_oficial.inergy
+FROM 
+  public.abonado_oficial
+  where abonado_oficial.inergy like '%SAL%' or abonado_oficial.inergy like '%HOS%'

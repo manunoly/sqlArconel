@@ -1,0 +1,21 @@
+﻿SELECT 
+  abonado_oficial.inergy, 
+  abonado_oficial.medidor as medidorOficial, 
+  abonado.medidor,
+  abonado_oficial.cuenta as cuentaOficial,
+  abonado.cuenta,  
+  abonado_oficial.nombreabonado as nombreAbonadoOficial, 
+  abonado.nombreabonado, 
+  abonado_oficial.ubicacionabonado as ubicacionOficial, 
+  abonado.ubicacionabonado, 
+  abonado.cantidaderror,
+  abonado.descripciontarifa,
+  abonado_oficial.coord_x,
+  abonado_oficial.coord_y
+FROM 
+  public.abonado, 
+  public.abonado_oficial
+WHERE 
+  abonado_oficial.medidor = abonado.medidor and abonado.id_empresa = abonado_oficial.id_empresa and abonado.cantidaderror = 0 and abonado.id_abonado in (select id_abonado from consumo)
+ORDER BY
+  abonado.medidor ASC;

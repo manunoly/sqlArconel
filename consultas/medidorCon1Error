@@ -1,0 +1,13 @@
+﻿SELECT 
+  abonado_historia.medidor, 
+  abonado_historia.cuenta, 
+  abonado_historia.nombreabonado, 
+  abonado_historia.ubicacionabonado, 
+  abonado_historia.descripciontarifa
+FROM 
+  public.abonado, 
+  public.abonado_historia
+WHERE 
+  abonado_historia.id_abonado = abonado.id_abonado AND
+  abonado.cantidaderror = 1
+  order by medidor

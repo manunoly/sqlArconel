@@ -1,0 +1,29 @@
+﻿SELECT 
+count(*),
+empresa_ubicacion.empresa,
+consumo.id_abonado,
+abonado.medidor,
+abonado.cantidaderror 
+FROM 
+  public.abonado, 
+  public.abonado_oficial, 
+  public.consumo, 
+  public.empresa_ubicacion
+WHERE 
+  abonado.id_empresa_ubicacion = empresa_ubicacion.id_empresa_ubicacion 
+  AND abonado_oficial.id_empresa = abonado.id_empresa 
+  AND abonado_oficial.medidor = abonado.medidor 
+  AND consumo.id_abonado = abonado.id_abonado
+--   and abonado.cantidaderror = 10
+--   and empresa_ubicacion.idempresa != '81'
+  group by
+  abonado_oficial.inergy,
+  empresa_ubicacion.empresa, 
+  abonado.medidor, 
+  abonado.cuenta, 
+  abonado.nombreabonado,
+  consumo.id_abonado,
+  abonado.cantidaderror
+  having count(*) > 16
+  order by empresa_ubicacion.empresa,
+  abonado.medidor

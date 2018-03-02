@@ -1,0 +1,10 @@
+﻿SELECT 
+  abonado_oficial.inergy_nuevo, 
+  split_part(abonado_oficial.inergy_nuevo, '-', 2) as tipo,
+  split_part(abonado_oficial.inergy_nuevo, '-', 1) as ubicacion
+FROM 
+  public.abonado_oficial
+WHERE 
+  abonado_oficial.inergy_nuevo IS NOT NULL  AND 
+  abonado_oficial.area IS NOT NULL  AND 
+  abonado_oficial.catalina_full = 1;

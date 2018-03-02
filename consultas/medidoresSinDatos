@@ -1,0 +1,8 @@
+﻿SELECT 
+  *
+FROM 
+  public.abonado
+where abonado.medidor not in (SELECT 
+  consumo.medidor
+FROM 
+  public.consumo)

@@ -1,0 +1,43 @@
+(S:BALTRA;    estacion
+D:150203;	fecha
+T:150000;	hora
+
+Temperatura del aire
+TAAVG1H:30.7;	temperaturaAirePromedio
+TAMAX1H:31.6;	temperaturaAireMaxima
+TAMIN1H:30.2;	temperaturaAireMinima
+
+Humedad Relativa
+RHAVG1H:61;	humedadRelativaPromedio	
+RHMAX1H:64;	humedadRelativaMaxima
+RHMIN1H:59;	humedadRelativaMinima
+
+Presión Barométrica
+PAAVG1H:1007.9;	presionBarometricaPromedio
+PAMAX1H:1008.3;	presionBarometricaMaxima
+PAMIN1H:1007.6;	presionBarometricaMinima
+
+Radiación Solar Global
+SRGLOAVG1H:988;	radiaciónSolarGlobalPromedio
+SRGLOMAX1H:1144	radiaciónSolarGlobalMaxima
+SRGLOMIN1H:227;	radiaciónSolarGlobalMinima
+SRGLOSUM1H:5;	radiaciónSolarGlobalSumatoria
+
+Radiación Solar Difusa
+SRDIFAVG1H:192;	radiaciónSolarDifusaPromedio
+SRDIFMAX1H:234;	radiaciónSolarDifusaMaxima
+SRDIFMIN1H:154;	radiaciónSolarDifusaMinima
+SRDIFSUM1H:11;	radiaciónSolarDifusaSumatoria
+
+Dirección del viento
+WD1HA:120;	direcciónVientoPromedio
+WD1HX:176;	direcciónVientoMaxima
+WGD1HX:115;	direcciónRachaVientoMaxima
+WGDH:14;	horaRacha
+WDGM:55;	minutoRacha   -----------------------esta etiqueta no aparece en el excel parece falta ortografia
+WS1HA:7.6;	velocidadVientoPromedio
+WS1HX:12.0;	velocidadVientoMaxima
+WS1HM:0.7;	velocidadVientoMinima
+WR1H:93;	recorridoViento
+DC:14.480)	voltajeBatería
+
